@@ -1,0 +1,87 @@
+package com.mydomain.myproject.controllers;// Spring Initializr
+
+//Imports other classes in this project
+import com.mydomain.myproject.entities.User;
+import com.mydomain.myproject.repositories.UserRepository;
+//import com.mydomain.myproject.services.UserService;
+
+
+//Imports - Annotations
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+//import org.springframework.web.bind.annotation.PutMapping;
+//import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+//import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestBody;
+//import org.springframework.web.bind.annotation.ModelAttribute;
+
+
+
+@RestController
+@RequestMapping("/users")
+public class UserController {// Spring Initializr
+
+    //Instantiate an object: UserRespository 
+    private final UserRepository userRepository;
+
+    public UserController (UserRepository userRepository){
+        this.userRepository = userRepository;
+    }
+    
+    // endpoint should still be /users
+    @PostMapping("/users")
+    //01.11.2025 - codecademy ai 
+    //If you want to use @RequestBody, you must send JSON from the client. This means you need to use JavaScript and JSON.stringify() to send the data as JSON, not as regular form data.
+    public String createUser(@RequestBody User user){
+    //public String createUser(@ModelAttribute User user){ //- codecademy advised but it doesnt work
+    //public String createUser(User user){ - codecademy advised but it doesnt work
+        this.userRepository.save(user);
+        return "Message";
+    }
+
+
+    // endpoint is still /users
+    @GetMapping
+    //UserRepository initialized within this method 
+    public Iterable<User> getAllUsers(){
+        return this.userRepository.findAll();
+    }
+/*
+    @GetMapping(path="/byusername/{username}")
+    //public Iterable<User> getUserByUsername(@PathVariable String username){ - VS didnt like this
+    public User getUserByUsername(@PathVariable String username){    
+        return userRepository.findByUsername(username);
+    }
+*/
+    @GetMapping(path="/byemail/{email}")
+    //public Iterable<User> getUserByEmail(@PathVariable String email){ - VS didnt like this
+    public User getUserByEmail(@PathVariable String email){
+        return userRepository.findByEmail(email);
+    }
+
+    /*
+    Failed
+    @PostMapping(path="/register")
+    public String createUser(@RequestBody User user){
+    //public String createUser(@RequestParam String username, @RequestParam Integer phone, @RequestParam String email, @RequestParam String password){
+        //User createUser = new User(username, phone, email, password);
+        //new User(username, phone, email, password);
+        //userRepository.save(user);
+        return "Message";
+    }
+    */
+    
+
+    //@PutMapping
+    
+    //@DeleteMapping
+
+
+    
+
+
+
+}// Spring Initializr

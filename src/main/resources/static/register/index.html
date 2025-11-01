@@ -1,0 +1,69 @@
+<!-- Register form for website --> 
+<!-- Page written by Laurina Madden - Student Number x20200765 -->
+
+<!-- Language English - to be read from left to right  -->
+<html lang="en" dir="ltr">
+     <head>
+        <title>Name Page</title>
+
+        <meta name="keywords" content="X, X">
+		<meta name="author" content="Laurina Madden">
+        <!-- Adding utf-8 character encoding -->
+		<meta charset="utf-8">
+        <!-- Website CSS -->
+		<link rel="stylesheet" href="style/style.css"/>
+     </head>
+     <body id="top">
+        <div>
+            <!-- Register Form -->
+            <!-- 25.10.2025 - html.com + W3 Schools - method="post" HTTP post transaction to server -->
+            <!-- id= is for css - unique atttribute -->
+            <!-- method= "attribute specifies how to send form-data" -->
+            <!-- https://www.w3schools.com/tags/att_form_method.asp -->
+            <!-- https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/How_to_structure_a_web_form -->
+            <!-- It was Codecademy that advised me to add in action="/users" I will need to look into this more but just want the registeration to work because its taking weeks of working daily on it daily to try to figure it out -->
+             <form method="post" action="/users" id="regform"> 
+                <div> 
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                    <!-- <input type="text" id="username" name="username">  -->
+                </div> 
+                <div>
+                    <label for="phone">Mobile Number:</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email">
+                </div>
+                <div>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                    <!-- <input type="password" id="password" name="password"> -->
+                </div> 
+                <!-- Relative path tested 12.10.2025 - works with this button when form is commented out -->
+                <!-- Seems this code only works as a link to log in page and doesnt submit the form 
+                <a href="../logIn/index.html">
+					<button class="button">Submit form</button>
+				</a>
+                25.10.2025 -->
+                <!-- html.com - button with form as auto submitter however what is sent? and in what language -->
+                <!-- type="submit" is defult however this would send form as URL- encoded form but I need JSON -->
+                <!-- type="button" doesnt seem to be right: triggers JavaScript which is what I need for JSON form data to be sent --> 
+                <!-- id added for JavaScript getElementById and eventListener -->
+                
+                <!--<button id="regButton" type="button">Submit</button>-->
+                <button type="submit">Submit</button>
+
+
+            </form>
+        </div>
+        <!-- End of Page -->
+        <!-- Go Back to Top of Page -->
+		<!-- <a href="#top">Go to the Top of Page</a> -->
+    
+    
+    <!-- Link to JavaScript Class -->
+    <script src="script/script.js"></script> 
+    </body>
+</html>
