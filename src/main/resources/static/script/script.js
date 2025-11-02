@@ -41,19 +41,20 @@
             password: document.getElementById('password').value
         };
 
-        // fetch() will send POST request with header Content-Type: application/json
+        // Aprox 29.10.2025 - Validate data in client side
+
+        // Aprox 29.10.2025 -  Export data as JSON to UserService class for server side 
+
+        // Aprox 29.10.2025 -  Send via fetch() or XMLHttpRequest
+        // 01.11.2025 - fetch() will send POST request with header Content-Type: application/json
         fetch("/users",{
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            // JSON.stringify() converts the data to JSON for server side
+            // Aprox 29.10.2025 -  Convert data to JSON with JSON.stringify()
+            // 01.11.2025 - JSON.stringify() converts the data to JSON for server side
             body: JSON.stringify(data)
         });
 
-        // Aprox 29.10.2025 - Validate data in client side 
-
-        // Aprox 29.10.2025 -  Export data as JSON to UserService class for server side 
-        // Aprox 29.10.2025 -  Send via fetch() or XMLHttpRequest
-        // Aprox 29.10.2025 -  Convert data to JSON with JSON.stringify()
 
         // Aprox 29.10.2025 -  ServiceUser needs to collect/be sent the data
         // Aprox 29.10.2025 -  UserController needs to then get the data and save reg data to database
