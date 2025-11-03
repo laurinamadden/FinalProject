@@ -22,7 +22,7 @@
     // .addEventListener is a flexible approach and allows you to add multiple event listeners to the same element and does not overwrite any existing handlers.
     // 01.11.2025 - I had an extra bracket ("submit") - removed it today as advised by Codecademy AI
     
-    document.getElementById('myform').addEventListener("submit", function(event){
+    document.getElementById('regform').addEventListener("submit", function(event){
         event.preventDefault();
          
         // Test                                              
