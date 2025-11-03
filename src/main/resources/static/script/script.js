@@ -10,7 +10,7 @@
     // Test output to Console on webpage
     console.log("............Inside JavaSript Class............");
     // Test output to Terminal 
-    System.out.println("............Inside JavaSript Class............");
+    //System.out.println("............Inside JavaSript Class............");
 
     // id="regButton" from html
     //var reg = document.getElementById("regButton");
