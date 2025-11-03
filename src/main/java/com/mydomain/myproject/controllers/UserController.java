@@ -32,7 +32,8 @@ public class UserController {// Spring Initializr
     }
     
     // endpoint should still be /users
-    @PostMapping("/users")
+    //@PostMapping("/users") // commented out on 02.11.2025 due to POST not supported and status 405 errors
+    @PostMapping // 02.11.2025 - now getting errors T"Content-Type 'application/x-www-form-urlencoded;charset=UTF-8' is not supported]" & Browser"Whitelabel Error Page This application has no explicit mapping for /error, so you are seeing this as a fallback. Sun Nov 02 16:49:21 GMT 2025 There was an unexpected error (type=Unsupported Media Type, status=415)."
     //01.11.2025 - codecademy ai 
     //If you want to use @RequestBody, you must send JSON from the client. This means you need to use JavaScript and JSON.stringify() to send the data as JSON, not as regular form data.
     public String createUser(@RequestBody User user){

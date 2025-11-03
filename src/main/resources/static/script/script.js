@@ -15,10 +15,10 @@
     //reg.addEventListener("click", regFunction);
     //reg.addEventListener(onclick, regFunction);
 
-    //document.getElementById('myform').onsubmit = function(event){
+    // document.getElementById('myform').onsubmit = function(event){
     // apparently addEventListener is more modern and preferred and "best practice" as it lets me add multiple listeners to the same event, and is more flexible. according to Codecademy AI.
     // .addEventListener is a flexible approach and allows you to add multiple event listeners to the same element and does not overwrite any existing handlers.
-    // 01.11.2025 - I had an extra bracket ("submit") - removed it today
+    // 01.11.2025 - I had an extra bracket ("submit") - removed it today as advised by Codecademy AI
     
     document.getElementById('myform').addEventListener("submit", function(event){
         event.preventDefault();
@@ -26,7 +26,7 @@
         // Test                                              
         console.log("............Inside document.getElementById in JavaScript............");
 /*
-        // Trying to get the data entered into the form into JavaScript class
+        // 29.10.2025 - Trying to get the data entered into the form into JavaScript class
         const username = document.getElementById('username').value;
         //const phone = document.getElementById('phone').ariaValueMax;//.value auto changed
         const phone = document.getElementById('phone').value;
