@@ -35,9 +35,24 @@ public class User {// Spring Initializr
     @Column(name = "PASSWORD")
     private String password;
 
-    public User(String username2, Integer phone2, String email2, String password2) {
-        //TODO Auto-generated constructor stub
+    public User() {
+        // required by JPA and Spring
+        // for frameworks
     }
+    
+    // is for your own use when you want to create a user in your code
+    public User(String username, Integer phone, String email, String password) { //TODO Auto-generated constructor stub but I removed the 2s it had username2 etc
+        this.username = username;
+        this.phone = phone;
+        this.email = email;
+        this.password = password;
+    }
+
+    /*
+    Codecademy AI
+    "If you only have the second one, Spring/JPA will not work properly.
+    If you have both, everything will work!"
+    */
 
     public String getUsername() {
         return username;
