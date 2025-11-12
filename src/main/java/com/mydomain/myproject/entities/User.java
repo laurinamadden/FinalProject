@@ -27,21 +27,22 @@ public class User {// Spring Initializr
     private String username;
 
     @Column(name = "PHONE")
-    private Integer phone;
+    private String phone;
 
-    @Column(name = "EMAIL")
+    @Column(name = "EMAIL") 
     private String email;
 
     @Column(name = "PASSWORD")
     private String password;
 
     public User() {
-        // required by JPA and Spring
+        // required by JPA and Spring  to stay empty
         // for frameworks
     }
     
     // is for your own use when you want to create a user in your code
-    public User(String username, Integer phone, String email, String password) { //TODO Auto-generated constructor stub but I removed the 2s it had username2 etc
+    public User(String username, String phone, String email, String password) { //TODO Auto-generated constructor stub but I removed the 2s it had username2 etc
+        // I added this code with Codecademy AI advice 
         this.username = username;
         this.phone = phone;
         this.email = email;
@@ -51,14 +52,15 @@ public class User {// Spring Initializr
     /*
     Codecademy AI
     "If you only have the second one, Spring/JPA will not work properly.
-    If you have both, everything will work!"
+    If you have both, everything will work!...
+    JPA (the part of Spring that talks to the database) and JSON deserialization (when Spring turns JSON into a Java object) both need a no-argument constructor (a constructor with no parameters). This is how Java frameworks create objects behind the scenes."
     */
 
     public String getUsername() {
         return username;
     }
 
-    public Integer getPhone() {
+    public String getPhone() {
         return phone;
     }
 
