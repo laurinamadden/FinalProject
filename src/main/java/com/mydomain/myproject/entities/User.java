@@ -36,6 +36,7 @@ public class User {// Spring Initializr
     private String password;
 
     public User() {
+        // from Codecademy AI
         // required by JPA and Spring  to stay empty
         // for frameworks
     }
