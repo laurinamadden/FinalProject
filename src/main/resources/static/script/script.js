@@ -27,6 +27,7 @@
          
         // Test                                              
         console.log("............Inside document.getElementById in JavaScript............");
+        console.log("...Test output...");
 /*
         // 29.10.2025 - Trying to get the data entered into the form into JavaScript class
         const username = document.getElementById('username').value;
@@ -35,7 +36,10 @@
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
 */
+        console.log("Test1");
+        console.log("Test2");
         //01.11.2025
+        console.log("Above const data");
         const data = {
             username: document.getElementById("username").value,
             phone: document.getElementById("phone").value,
@@ -49,6 +53,7 @@
 
         // Aprox 29.10.2025 -  Send via fetch() or XMLHttpRequest
         // 01.11.2025 - fetch() will send POST request with header Content-Type: application/json
+        console.log("Above fetch in script.js");
         fetch("/users",{
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -56,6 +61,14 @@
             // 01.11.2025 - JSON.stringify() converts the data to JSON for server side
             body: JSON.stringify(data)
         });
+
+        /*
+        window.location.href = "../login/index.html";
+        window.location.replace("index.html");
+        Go to log in page
+        */
+        console.log("Move to logIn page. Test relative path");
+        window.location.href = "../login/index.html";
 
 
         // Aprox 29.10.2025 -  ServiceUser needs to collect/be sent the data
