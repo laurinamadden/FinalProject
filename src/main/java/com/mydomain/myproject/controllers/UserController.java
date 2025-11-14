@@ -39,6 +39,7 @@ public class UserController {// Spring Initializr
     public String createUser(@RequestBody User user){
     //public String createUser(@ModelAttribute User user){ //- codecademy advised but it doesnt work
     //public String createUser(User user){ - codecademy advised but it doesnt work
+        System.out.println("Inside UserController PostMapping createUSer ");
         this.userRepository.save(user);
         return "Message";
     }
