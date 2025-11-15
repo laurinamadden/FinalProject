@@ -38,8 +38,8 @@ public class UserController {// Spring Initializr
     //If you want to use @RequestBody, you must send JSON from the client. This means you need to use JavaScript and JSON.stringify() to send the data as JSON, not as regular form data.
     public String createUser(@RequestBody User user){
     //public String createUser(@ModelAttribute User user){ //- codecademy advised but it doesnt work
-    //public String createUser(User user){ - codecademy advised but it doesnt work
-        System.out.println("Inside UserController PostMapping createUSer ");
+    //public String createUser(User user){ - codecademy advised to use this instead but it doesnt work
+        System.out.println("Inside UserController PostMapping createUSer. Print to terminal.");
         this.userRepository.save(user);
         return "Message";
     }
@@ -51,13 +51,13 @@ public class UserController {// Spring Initializr
     public Iterable<User> getAllUsers(){
         return this.userRepository.findAll();
     }
-/*
+ 
     @GetMapping(path="/byusername/{username}")
     //public Iterable<User> getUserByUsername(@PathVariable String username){ - VS didnt like this
     public User getUserByUsername(@PathVariable String username){    
         return userRepository.findByUsername(username);
     }
-*/
+
     @GetMapping(path="/byemail/{email}")
     //public Iterable<User> getUserByEmail(@PathVariable String email){ - VS didnt like this
     public User getUserByEmail(@PathVariable String email){
