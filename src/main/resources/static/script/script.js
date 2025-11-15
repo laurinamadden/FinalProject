@@ -68,7 +68,8 @@
         // console.log("Move to logIn page. Test relative path");
         // 15.11.2025 - This has worked so the relative path must work and the code in this fuction must get down to 
         window.location.href = "../login/index.html";
-
+        // will this print to the console
+        console.log("Does this print after webpage has changed to log in"); 
 
 
         // Aprox 29.10.2025 -  ServiceUser needs to collect/be sent the data
