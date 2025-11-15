@@ -68,13 +68,16 @@
         // console.log("Move to logIn page. Test relative path");
         // 15.11.2025 - This has worked so the relative path must work and the code in this fuction must get down to 
         window.location.href = "../login/index.html";
-        // will this print to the console
+        // will this print to the console - yes but just for a sec before the page changes
         console.log("Does this print after webpage has changed to log in"); 
-
+        // 15.11.2025 - Print to screen test 
+        //console.log("username = "+username); 
+        //console.log(phone); 
+        // This pprints out what was inputted into reg after pressing the submit button when we go back a page back to reg page
+        console.log(data);
 
         // Aprox 29.10.2025 -  ServiceUser needs to collect/be sent the data
-        // Aprox 29.10.2025 -  UserController needs to then get the data and save reg data to database
-        
+        // Aprox 29.10.2025 -  UserController needs to then get the data and save reg data to database   
 
 
     });

@@ -43,7 +43,17 @@ public class UserController {// Spring Initializr
         this.userRepository.save(user);
         return "Message";
     }
-
+    /*
+    Failed
+    @PostMapping(path="/register")
+    public String createUser(@RequestBody User user){
+    //public String createUser(@RequestParam String username, @RequestParam Integer phone, @RequestParam String email, @RequestParam String password){
+        //User createUser = new User(username, phone, email, password);
+        //new User(username, phone, email, password);
+        //userRepository.save(user);
+        return "Message";
+    }
+    */
 
     // endpoint is still /users
     @GetMapping
@@ -51,7 +61,7 @@ public class UserController {// Spring Initializr
     public Iterable<User> getAllUsers(){
         return this.userRepository.findAll();
     }
- 
+
     @GetMapping(path="/byusername/{username}")
     //public Iterable<User> getUserByUsername(@PathVariable String username){ - VS didnt like this
     public User getUserByUsername(@PathVariable String username){    
@@ -64,25 +74,10 @@ public class UserController {// Spring Initializr
         return userRepository.findByEmail(email);
     }
 
-    /*
-    Failed
-    @PostMapping(path="/register")
-    public String createUser(@RequestBody User user){
-    //public String createUser(@RequestParam String username, @RequestParam Integer phone, @RequestParam String email, @RequestParam String password){
-        //User createUser = new User(username, phone, email, password);
-        //new User(username, phone, email, password);
-        //userRepository.save(user);
-        return "Message";
-    }
-    */
-    
-
     //@PutMapping
     
+
     //@DeleteMapping
-
-
-    
 
 
 
