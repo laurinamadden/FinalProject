@@ -68,6 +68,7 @@ public class UserController {// Spring Initializr
         return userRepository.findByUsername(username);
     }
 
+
     @GetMapping(path="/byemail/{email}")
     //public Iterable<User> getUserByEmail(@PathVariable String email){ - VS didnt like this
     public User getUserByEmail(@PathVariable String email){

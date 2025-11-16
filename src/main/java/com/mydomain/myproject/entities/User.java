@@ -57,6 +57,7 @@ public class User {// Spring Initializr
     JPA (the part of Spring that talks to the database) and JSON deserialization (when Spring turns JSON into a Java object) both need a no-argument constructor (a constructor with no parameters). This is how Java frameworks create objects behind the scenes."
     */
 
+    // Getters
     public String getUsername() {
         return username;
     }
@@ -74,5 +75,20 @@ public class User {// Spring Initializr
     }
 
     // Can set up setters in time so that the data can be updated 
+    // 16.11.2025 - Setters
+    public void setUsername(String newUsername){
+        this.username = newUsername;
+    }
 
+    public void setPhone(String newPhone){
+        this.phone = newPhone;
+    }
+
+    public void setEmail(String newEmail){
+        this.email = newEmail;
+    }
+
+    public void setPassword(String newPassword){
+        this.password = newPassword;
+    }
 }// Spring Initializr

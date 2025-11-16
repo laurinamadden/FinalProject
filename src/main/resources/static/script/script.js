@@ -21,11 +21,18 @@
     // apparently addEventListener is more modern and preferred and "best practice" as it lets me add multiple listeners to the same event, and is more flexible. according to Codecademy AI.
     // .addEventListener is a flexible approach and allows you to add multiple event listeners to the same element and does not overwrite any existing handlers.
     // 01.11.2025 - I had an extra bracket ("submit") - removed it today as advised by Codecademy AI
-    
+/*
+    Links JavaScript to HTML 
+    document: HTML class open that the user can currently see in the browser
+    .getElementById(): Find HTML Element within the brackets with the id of the same name eg id=”regForm”
+    .addEventListener(): Creates a listener for an event like “submit” and then listens out for the event “submit” within the brackets and responds with the function(event({…}
+    “submit”: An event that the code listens out for
+    function(event){…}: This function runs when the event (“submit”) is triggered and heard by the .addEventListener()
+*/
     document.getElementById("regform").addEventListener("submit", function(event){
         event.preventDefault();
          
-        // Test                                              
+        // Test output to console to check where the code is and that it has gotten to this point of the code                                             
         console.log("............Inside document.getElementById in JavaScript............");
         // console.log("...Test output...");
 /*
