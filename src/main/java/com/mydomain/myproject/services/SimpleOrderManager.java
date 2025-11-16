@@ -1,5 +1,6 @@
 // Code copied in by Laurina Madden from https://docs.spring.io/spring-framework/reference/integration/email.html
 // Might not need at all 
+// Java Mail Sender
 public class SimpleOrderManager implements OrderManager {
 
 	private MailSender mailSender;

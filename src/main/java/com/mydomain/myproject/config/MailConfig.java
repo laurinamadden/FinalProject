@@ -1,3 +1,4 @@
+// Java Mail Sender
 @Configuration
 public class MailConfig {
     // Copied in by Laurina Madden from https://docs.spring.io/spring-framework/reference/integration/email.html
