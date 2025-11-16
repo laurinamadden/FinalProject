@@ -64,9 +64,11 @@
             headers: { "Content-Type": "application/json" },
             // Aprox 29.10.2025 -  Convert data to JSON with JSON.stringify()
             // 01.11.2025 - JSON.stringify() converts the data to JSON for server side
+            // W3 Schools. https://www.w3schools.com/js/js_json_stringify.asp "A common use of JSON is to exchange data to/from a web server. When sending data to a web server, the data has to be a string. You can convert any JavaScript datatype into a string with JSON.stringify()."... "it can convert any JavaScript value into a string."
             body: JSON.stringify(data)
         });
-
+        // Test that body: JSON.stringify(data) has worked
+        console.log(JSON.stringify(data)); 
         /*
         window.location.href = "../login/index.html";
         window.location.replace("index.html");
