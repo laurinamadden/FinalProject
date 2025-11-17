@@ -3,7 +3,7 @@ package com.mydomain.myproject.controllers;// Spring Initializr
 //Imports other classes in this project
 import com.mydomain.myproject.entities.User;
 import com.mydomain.myproject.repositories.UserRepository;
-//import com.mydomain.myproject.services.UserService;
+import com.mydomain.myproject.services.UserService;
 
 
 //Imports - Annotations
