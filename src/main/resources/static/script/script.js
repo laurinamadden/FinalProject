@@ -33,7 +33,7 @@
         event.preventDefault();
          
         // Test output to console to check where the code is and that it has gotten to this point of the code                                             
-        console.log("............Inside document.getElementById in JavaScript............");
+        console.log("............Inside document.getElementById(reg) in JavaScript............");
         // console.log("...Test output...");
 /*
         // 29.10.2025 - Trying to get the data entered into the form into JavaScript class
@@ -77,6 +77,7 @@
         // console.log("Move to logIn page. Test relative path");
         // 15.11.2025 - This has worked so the relative path must work and the code in this fuction must get down to 
         window.location.href = "../login/index.html";
+        // window.location.href = "../validation/index.html";
         // will this print to the console - yes but just for a sec before the page changes
         console.log("Does this print after webpage has changed to log in"); 
         // 15.11.2025 - Print to screen test 
@@ -99,9 +100,23 @@
         
         // Test                                              
        // console.log("Inside the regFunction of JavaScript");
+    // 19.11.2025
+    document.getElementById("loginform").addEventListener("submit", function(event){
+        event.preventDefault();
+    
+         const data = {
+            username: document.getElementById("loginusername").value,
+            password: document.getElementById("loginpassword").value
+        };
+
+        fetch("/users",{
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+        });
 
 
-
+    });
 
 
     //}
