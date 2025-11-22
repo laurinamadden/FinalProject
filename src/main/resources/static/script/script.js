@@ -57,6 +57,10 @@
         const username = {username: document.getElementById("username").value};
         const phone = {phone: document.getElementById("phone").value};
         const email = {email: document.getElementById("email").value};
+        confirm email
+        const email = {email: document.getElementById("email").value};
+        const password = {password: document.getElementById("password").value};
+        confirm password
         const password = {password: document.getElementById("password").value};
         */
 
@@ -67,6 +71,15 @@
         // Aprox 29.10.2025 -  Send via fetch() or XMLHttpRequest
         // 01.11.2025 - fetch() will send POST request with header Content-Type: application/json
         // console.log("Above fetch in script.js");
+        /*
+        if (email == confirmEmail){
+            if (password == cofirmPassword){
+            }
+        }
+        else{
+            //    
+        }
+        */
         fetch("/users",{
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -129,7 +142,7 @@
         const loginPassword = {password: document.getElementById("loginPassword").value};
         
         
-        
+        fetch("/login",{
         */
         fetch("/users",{
             method: "POST",
