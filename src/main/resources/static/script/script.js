@@ -140,11 +140,11 @@
         Or
         const loginUsername = {username: document.getElementById("loginUsername").value};
         const loginPassword = {password: document.getElementById("loginPassword").value};
-        
+        */
         
         fetch("/login",{
-        */
-        fetch("/users",{
+        
+        //fetch("/users",{
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data)

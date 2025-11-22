@@ -19,8 +19,8 @@
             <!-- Post method is more secure. Even for log ins. -->
             <!-- action is the trolly/path/temp holder cant remember what its tech name is -->
             <!-- id is how its identified -->
-            <!--<form method="post" action="/login" id="loginform">--> 
-            <form method="post" action="/users" id="loginform">
+            <form method="post" action="/login" id="loginform">
+            <!--<form method="post" action="/users" id="loginform">-->
                 <div>
                     <label for="loginUsername">Username:</label>
                     <input type="text" id="loginUsername" name="username" required>
@@ -30,7 +30,8 @@
                     <input type="password" id="loginPassword" name="password" required>
                 </div>
                 <button type="submit">Log In</button>
-                <p>Don't have account yet?<a href="../register/index.html">Create Account</a></p>
+                <p>Don't have account yet?</p> 
+                <p><a href="../register/index.html">Create Account</a></p>
             </form>
             <!-- 15.11.2025 - Print to screen test  -->   
         </div>

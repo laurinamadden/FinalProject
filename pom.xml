@@ -29,6 +29,7 @@
 	<properties><!-- Spring Initializr -->
 		<java.version>21</java.version><!-- Spring Initializr -->
 	</properties><!-- Spring Initializr -->
+	
 	<dependencies><!-- Spring Initializr -->
 		<dependency><!-- Spring Initializr -->
 			<groupId>org.springframework.boot</groupId><!-- Spring Initializr -->
@@ -58,7 +59,17 @@
 			<artifactId>spring-boot-starter-test</artifactId><!-- Spring Initializr -->
 			<scope>test</scope><!-- Spring Initializr -->
 		</dependency><!-- Spring Initializr -->
+	
+		<!-- Commented out as it doesnt like it -->
+		<!-- <dependency> -->
+			<!-- <groupId>mysql</groupId> -->
+			<!-- <artifactId>mysql-connector-java</artifactId> -->
+			<!-- <scope>runtime</scope> -->
+		<!-- </dependency> -->
+	
+	
 	</dependencies><!-- Spring Initializr -->
+
 
 	<build><!-- Spring Initializr -->
 		<plugins><!-- Spring Initializr -->
