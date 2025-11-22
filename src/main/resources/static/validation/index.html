@@ -1,9 +1,10 @@
 <!-- Validation Page for website --> 
 <!-- Page written by Laurina Madden - Student Number x20200765 on 19.11.2025 -->
+<!-- Meant to be a work around for JWT but found out on 21.11.2025 that JWT is possible with Spring boot with out the dependency I thought was needed -->
 
 <!-- Language English - to be read from left to right  -->
 <html lang="en" dir="ltr">
-     <head>
+    <head>
         <title>Name Page</title>
 
         <meta name="keywords" content="X, X">
@@ -12,12 +13,12 @@
 		<meta charset="utf-8">
         <!-- Website CSS -->
 		<link rel="stylesheet" href="../style/style.css"/>
-     </head>
-     <body id="x">
+    </head>
+    <body id="x">
         <div>
             <!-- Validation Form -->
             <!-- Post method is more secure  -->
-            <form method="post" action="/users" id="loginform">
+            <form method="post" action="/code" id="validationform">
                 <div>
                     <label for="code">Please enter the authorisation code that was sent to your email address:</label>
                     <input type="text" id="code" name="code" required>

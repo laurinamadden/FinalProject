@@ -41,6 +41,7 @@ public class UserController {// Spring Initializr
     //public String createUser(User user){ - codecademy advised to use this instead but it doesnt work
         System.out.println("Inside UserController PostMapping createUSer. Print to terminal.");
         this.userRepository.save(user);
+        // 22.11.2025 - This doesnt look like it would be right 
         return "Message";
     }
     /*

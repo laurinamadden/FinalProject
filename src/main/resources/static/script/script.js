@@ -52,6 +52,14 @@
             password: document.getElementById("password").value
         };
 
+        /*
+        also try 
+        const username = {username: document.getElementById("username").value};
+        const phone = {phone: document.getElementById("phone").value};
+        const email = {email: document.getElementById("email").value};
+        const password = {password: document.getElementById("password").value};
+        */
+
         // Aprox 29.10.2025 - Validate data in client side
 
         // Aprox 29.10.2025 -  Export data as JSON to UserService class for server side 
@@ -66,9 +74,11 @@
             // 01.11.2025 - JSON.stringify() converts the data to JSON for server side
             // W3 Schools. https://www.w3schools.com/js/js_json_stringify.asp "A common use of JSON is to exchange data to/from a web server. When sending data to a web server, the data has to be a string. You can convert any JavaScript datatype into a string with JSON.stringify()."... "it can convert any JavaScript value into a string."
             body: JSON.stringify(data)
+            // also try - body: JSON.stringify(username, phone, email, password)
         });
         // Test that body: JSON.stringify(data) has worked
         console.log(JSON.stringify(data)); 
+
         /*
         window.location.href = "../login/index.html";
         window.location.replace("index.html");
@@ -104,15 +114,29 @@
     document.getElementById("loginform").addEventListener("submit", function(event){
         event.preventDefault();
     
-         const data = {
-            username: document.getElementById("loginusername").value,
-            password: document.getElementById("loginpassword").value
+        // Doesnt seem right 
+        const data = {
+            username: document.getElementById("loginUsername").value,
+            password: document.getElementById("loginPassword").value
         };
 
+        /*
+        also try 
+        const username = {username: document.getElementById("loginUsername").value};
+        const password = {password: document.getElementById("loginPassword").value};
+        Or
+        const loginUsername = {username: document.getElementById("loginUsername").value};
+        const loginPassword = {password: document.getElementById("loginPassword").value};
+        
+        
+        
+        */
         fetch("/users",{
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data)
+            // body: JSON.stringify(username, password)
+            // body: JSON.stringify(loginUsername, loginPassword)
         });
 
 
