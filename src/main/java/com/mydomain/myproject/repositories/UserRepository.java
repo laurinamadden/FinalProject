@@ -11,6 +11,7 @@ public interface UserRepository extends CrudRepository<User, Integer> {
     /*
     Here we are searching to see if the username or email exists within the database
     Then will return the row of the database to the controller class if it finds it  
+    JPA automatically implements the below method for log in
     */
     Boolean existsByUsername(String username);
     User findByUsername(String username);

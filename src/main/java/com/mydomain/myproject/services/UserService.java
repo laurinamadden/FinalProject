@@ -48,6 +48,8 @@ public class UserService {// Spring Initializr
         }
     }
 
+    // User user = userRepository.findByUsername(username);
+
     //Hash 
     //Creates new HashMap to store stuff
     private HashMap<String, String> user = new HashMap<>();

@@ -39,7 +39,7 @@ public class LogIn { //Auto created when I created the class
         this.loginPassword = loginPassword;
     }
 
-     // Getters
+    // Getters
     public String getLoginUsername() {
         return loginUsername;
     }

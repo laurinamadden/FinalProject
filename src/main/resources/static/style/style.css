@@ -1,4 +1,25 @@
-body {
-    text-align: centre;
-    background-color: rgb(210, 187, 255);
+* {
+    /*top: 50%;
+    width: 100%;
+    text-align: center;*/
+    /*object-position:40% 40%;*/
+    /*background-color: rgb(210, 187, 255);
+    background-image: linear-gradient(to bottom right, rgb(210, 187, 255), rgb(255, 202, 232));
+    background-repeat: no-repeat;
+    /*background-size: fill;
+    background-size: 100%;
+    background-position: center;
+    background-size: cover;
+    height: 100%;*/
+}
+
+/*The backgound would only expand to the whole screen when html, was added before body. Which blew my mind.*/
+html, body {
+    height: 100%;
+    margin: 0;
+    text-align: center;
+    background-image: linear-gradient(to bottom right, rgb(210, 187, 255), rgb(255, 202, 232));
+    background-repeat: no-repeat;
+    background-size: cover;
+    
 }
