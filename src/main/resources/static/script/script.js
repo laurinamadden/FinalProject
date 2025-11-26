@@ -45,6 +45,7 @@
 */
         //01.11.2025
         // console.log("Above const data");
+        // Is best practice 
         const data = {
             username: document.getElementById("username").value,
             phone: document.getElementById("phone").value,
@@ -53,7 +54,7 @@
         };
 
         /*
-        also try 
+        also try - not best practice 
         const username = {username: document.getElementById("username").value};
         const phone = {phone: document.getElementById("phone").value};
         const email = {email: document.getElementById("email").value};
@@ -127,14 +128,14 @@
     document.getElementById("loginform").addEventListener("submit", function(event){
         event.preventDefault();
     
-        // Doesnt seem right 
+        // Is best practice 
         const data = {
             username: document.getElementById("loginUsername").value,
             password: document.getElementById("loginPassword").value
         };
 
         /*
-        also try 
+        also try - not best practice 
         const username = {username: document.getElementById("loginUsername").value};
         const password = {password: document.getElementById("loginPassword").value};
         Or
