@@ -2,6 +2,7 @@ package com.mydomain.myproject.services;// Spring Initializr
 
 //import org.hibernate.annotations.processing.Find;// Auto created by VS Code
 import org.springframework.http.HttpStatus;// Auto created by VS Code
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;// Auto created by VS Code
 import org.springframework.web.server.ResponseStatusException;// Auto created by VS Code
 
@@ -39,6 +40,7 @@ public class UserService {// Spring Initializr
     }
     */
     //Checks if username exists. If true returns the user object if false not found message is returned.
+    // Part of log in not register
     public User findUser(String username) {
         if (userRepository.existsByUsername(username)) {
             return userRepository.findByUsername(username);
@@ -49,7 +51,7 @@ public class UserService {// Spring Initializr
     }
 
     // User user = userRepository.findByUsername(username);
-
+    /*
     //Hash 
     //Creates new HashMap to store stuff
     private HashMap<String, String> user = new HashMap<>();
@@ -66,13 +68,11 @@ public class UserService {// Spring Initializr
         for (byte b : hash) hexadecimalString.append(String.format("%02x", b));
         return hexadecimalString.toString();
     }
-
     // Register user
     //Method to add registered user to the HashMap
     public void registerH(String username, String password) throws NoSuchAlgorithmException {
         user.put(username, hashPassword(password));
     }
-
     // Login
     //Method to see if username an password match the HashMap 
     public boolean loginH(String username, String password) throws NoSuchAlgorithmException {
@@ -80,8 +80,27 @@ public class UserService {// Spring Initializr
         if (passwordH == null) return false;
         return passwordH.equals(hashPassword(password));
     }
+    */
+    // Register Process 
+    public ResponseEntity<?> regUser(User user) {
+        // 1. Check user input valid with else ifs
+        if(){
+
+        }
+        else{
+            //return new ResponseEntity<>("I'm a teapot", HttpStatus.I_AM_A_TEAPOT);
+            //409 Conflict for user/email that already exists otherwise 400 Bad Request
+            //return new ResponseEntity<>("User already exists", HttpStatus.CONFLICT);
+            return new ResponseEntity<>("Registration details given are not valid. Try again.", HttpStatus.BAD_REQUEST);
+        }
+        // 2. Check if user already exists with else ifs
+        // 3. Save data using Repository and BCrypt
+        // 4. Return 201 success message 
+        return new ResponseEntity<>("Registration successful", HttpStatus.CREATED);
+    }
 
 
+    // Log In
 
 
 

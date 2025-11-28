@@ -7,6 +7,7 @@ import com.mydomain.myproject.services.UserService;
 
 //Imports - Annotations
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 
+//27.11.2025 - Codecademy AI - Can I have else ifs within the controller class? Yes
 
 @RestController
 @RequestMapping("/users")
@@ -65,22 +67,26 @@ public class UserController {// Spring Initializr
     //If you want to use @RequestBody, you must send JSON from the client. This means you need to use JavaScript and JSON.stringify() to send the data as JSON, not as regular form data.
     // JSON comes from client side with @RequestBody User user
     public String createUser(@RequestBody User user){
+/*
     //public String createUser(@ModelAttribute User user){ //- codecademy advised but it doesnt work
     //public String createUser(User user){ - codecademy advised to use this instead but it doesnt work
         //System.out.println("Inside UserController PostMapping createUSer. Print to terminal.");
-        // this should be in the service class not the controller class 
+        // 27.11.2025 - this should be in the service class not the controller class 
         //this.userRepository.save(user);
         // 22.11.2025 - This doesnt look like it would be right 
         return "Message";
     }
-
+*/
     // Replacement code?
-    /*
-    @PostMapping("/reg")
+    //Handles HTTP POST method sent to the end point /users
+    @PostMapping("/users")
+    // When Post method for endpoint /users is triggered the first function below will run  
+    // <?> responce can be any type. It returns ResponseEntity
+    // ResponseEntity is from the spring library 
     public ResponseEntity<?> reg(@RequestBody User user) {
         return userService.regUser(user);
     }
-    */
+    
 
     /*
     Failed
@@ -97,8 +103,10 @@ public class UserController {// Spring Initializr
     // endpoint is still /users
     @GetMapping
     //UserRepository initialized within this method 
+    //27.11.2025 repository shouldmt be accessed through controller
     public Iterable<User> getAllUsers(){
-        return this.userRepository.findAll();
+        // 27.11.2025 - this should be in the service class not the controller class  
+        //return this.userRepository.findAll();
     }
 
     @GetMapping(path="/byusername/{username}")
@@ -115,7 +123,8 @@ public class UserController {// Spring Initializr
     @GetMapping(path="/byemail/{email}")
     //public Iterable<User> getUserByEmail(@PathVariable String email){ - VS didnt like this
     public User getUserByEmail(@PathVariable String email){
-        return userRepository.findByEmail(email);
+        // 27.11.2025 - this should be in the service class not the controller class 
+        //return userRepository.findByEmail(email);
     }
 
     //@PutMapping

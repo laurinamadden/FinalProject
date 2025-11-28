@@ -50,7 +50,9 @@
             username: document.getElementById("username").value,
             phone: document.getElementById("phone").value,
             email: document.getElementById("email").value,
-            password: document.getElementById("password").value
+            email: document.getElementById("confirmEmail").value,
+            password: document.getElementById("password").value,
+            password: document.getElementById("confirmPassword").value
         };
 
         /*
@@ -152,7 +154,7 @@
             // body: JSON.stringify(username, password)
             // body: JSON.stringify(loginUsername, loginPassword)
         });
-
+        window.location.href = "index.html";
 
     });
 
