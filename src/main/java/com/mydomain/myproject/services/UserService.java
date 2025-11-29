@@ -84,23 +84,42 @@ public class UserService {// Spring Initializr
     // Register Process 
     public ResponseEntity<?> regUser(User user) {
         // 1. Check user input valid with else ifs
-        if(){
+        if(1 == 2-1){
+            // 2. Check if user already exists with else ifs
+            if(1 == 2-1){
+                // 3. Save data using Repository and BCrypt
+                if(1 == 2-1){
+                    // 4. Return 201 success message 
+                    if(1 == 2-1){
+                        return new ResponseEntity<>("Registration successful", HttpStatus.CREATED);
+                    }
+                    // Couldn't return 201 success message 
+                    else{
 
+                    }
+                }
+                // Data couldn't save data using Repository and BCrypt
+                else{
+
+                }
+            }
+            // User already exists
+            else{
+
+            }
         }
+        // User input invalid 
         else{
             //return new ResponseEntity<>("I'm a teapot", HttpStatus.I_AM_A_TEAPOT);
             //409 Conflict for user/email that already exists otherwise 400 Bad Request
             //return new ResponseEntity<>("User already exists", HttpStatus.CONFLICT);
             return new ResponseEntity<>("Registration details given are not valid. Please try again.", HttpStatus.BAD_REQUEST);
         }
-        // 2. Check if user already exists with else ifs
-        // 3. Save data using Repository and BCrypt
-        // 4. Return 201 success message 
         return new ResponseEntity<>("Registration successful", HttpStatus.CREATED);
     }
 
 
-    // Log In
+    // Log In Process
 
 
 

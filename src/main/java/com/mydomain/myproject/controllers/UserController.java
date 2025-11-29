@@ -2,7 +2,8 @@ package com.mydomain.myproject.controllers;// Spring Initializr
 
 //Imports other classes in this project
 import com.mydomain.myproject.entities.User;
-import com.mydomain.myproject.repositories.UserRepository;
+// repository should not have direct access to controller or 
+//import com.mydomain.myproject.repositories.UserRepository;
 import com.mydomain.myproject.services.UserService;
 
 //Imports - Annotations
@@ -17,8 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 //import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestBody;
 //import org.springframework.web.bind.annotation.ModelAttribute;
-import java.security.NoSuchAlgorithmException;
-import java.util.Map;
+//import java.security.NoSuchAlgorithmException;
+//import java.util.Map;
 
 //27.11.2025 - Codecademy AI - Can I have else ifs within the controller class? Yes
 
@@ -59,13 +60,14 @@ public class UserController {// Spring Initializr
         this.userService = userService;
     }
 
-
+/*
     // endpoint should still be /users
     //@PostMapping("/users") // commented out on 02.11.2025 due to POST not supported and status 405 errors
     @PostMapping // 02.11.2025 - now getting errors T"Content-Type 'application/x-www-form-urlencoded;charset=UTF-8' is not supported]" & Browser"Whitelabel Error Page This application has no explicit mapping for /error, so you are seeing this as a fallback. Sun Nov 02 16:49:21 GMT 2025 There was an unexpected error (type=Unsupported Media Type, status=415)."
     //01.11.2025 - codecademy ai 
     //If you want to use @RequestBody, you must send JSON from the client. This means you need to use JavaScript and JSON.stringify() to send the data as JSON, not as regular form data.
     // JSON comes from client side with @RequestBody User user
+   
     public String createUser(@RequestBody User user){
 /*
     //public String createUser(@ModelAttribute User user){ //- codecademy advised but it doesnt work
@@ -99,7 +101,7 @@ public class UserController {// Spring Initializr
         return "Message";
     }
     */
-
+/*
     // endpoint is still /users
     @GetMapping
     //UserRepository initialized within this method 
@@ -126,7 +128,7 @@ public class UserController {// Spring Initializr
         // 27.11.2025 - this should be in the service class not the controller class 
         //return userRepository.findByEmail(email);
     }
-
+*/
     //@PutMapping
     
 
@@ -147,7 +149,7 @@ public class UserController {// Spring Initializr
         return userService.loginH(username, password);
     }
     was still getting error with this code till the import was manually entered
-    */
+    
     @PostMapping("/login")
     public Boolean logIn(@RequestBody Map<String, String> data) {
         try {
@@ -157,4 +159,5 @@ public class UserController {// Spring Initializr
             return false;
         }
     }
+    */
 }// Spring Initializr

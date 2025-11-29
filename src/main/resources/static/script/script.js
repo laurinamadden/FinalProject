@@ -47,6 +47,7 @@ document.getElementById("regform").addEventListener("submit", function(event){
                             headers: { "Content-Type": "application/json" },
                             body: JSON.stringify(data)
                         });
+                        window.location.href = "../login/index.html";
                     }
                     else{
                         // hasUpperChar !=  true || hasLowerChar != true
