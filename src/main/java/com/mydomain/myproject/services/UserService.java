@@ -91,7 +91,7 @@ public class UserService {// Spring Initializr
             //return new ResponseEntity<>("I'm a teapot", HttpStatus.I_AM_A_TEAPOT);
             //409 Conflict for user/email that already exists otherwise 400 Bad Request
             //return new ResponseEntity<>("User already exists", HttpStatus.CONFLICT);
-            return new ResponseEntity<>("Registration details given are not valid. Try again.", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("Registration details given are not valid. Please try again.", HttpStatus.BAD_REQUEST);
         }
         // 2. Check if user already exists with else ifs
         // 3. Save data using Repository and BCrypt

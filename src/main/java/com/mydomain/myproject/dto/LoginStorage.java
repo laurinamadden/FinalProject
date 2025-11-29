@@ -1,3 +1,4 @@
+/*
 //From codecademy AI 
 public class LoginStorage {
     private String username;
@@ -10,3 +11,4 @@ public class LoginStorage {
     public String getPassword() { return password; }
     public void setPassword(String password) { this.password = password; }
 }
+*/
