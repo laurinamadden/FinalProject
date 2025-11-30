@@ -1,10 +1,14 @@
 package com.mydomain.myproject.services;// Spring Initializr
 
+//import static org.junit.jupiter.api.Assertions.assertTrue;// Auto created by VS Code but didn't like it after changed to 4.0.0 apparently its only for test classes
+
 //import org.hibernate.annotations.processing.Find;// Auto created by VS Code
 import org.springframework.http.HttpStatus;// Auto created by VS Code
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;// Auto created by VS Code
 import org.springframework.web.server.ResponseStatusException;// Auto created by VS Code
+// Update to BCrypt when get a chance - thats what codecademy AI says is best practice for passwords
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 //import org.springframework.http.HttpStatus; //Thought this was needed but VS doesnt like it
 
@@ -12,11 +16,10 @@ import com.mydomain.myproject.entities.User;
 //import com.mydomain.myproject.entities.LogIn;
 import com.mydomain.myproject.repositories.UserRepository;
 
-import java.util.HashMap;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-// Update to BCrypt when get a chance - thats what codecademy AI says is best practice for passwords
-//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+//import java.util.HashMap;
+//import java.security.MessageDigest;
+//import java.security.NoSuchAlgorithmException;
+
 
 @Service
 public class UserService {// Spring Initializr
@@ -73,6 +76,7 @@ public class UserService {// Spring Initializr
     public void registerH(String username, String password) throws NoSuchAlgorithmException {
         user.put(username, hashPassword(password));
     }
+
     // Login
     //Method to see if username an password match the HashMap 
     public boolean loginH(String username, String password) throws NoSuchAlgorithmException {
@@ -81,29 +85,65 @@ public class UserService {// Spring Initializr
         return passwordH.equals(hashPassword(password));
     }
     */
+    // Pre Register Process?
+
+
+
     // Register Process 
     public ResponseEntity<?> regUser(User user) {
-        // 1. Check user input valid with else ifs
-        if(1 == 2-1){
+        boolean check1 = false;
+        boolean check2 = false;
+
+        for(int i = 0; i < user.getUsername().length(); i++){
+            //
+            char check = user.getUsername().charAt(i);
+            // 
+            if(0==0) {
+                check1 = true;
+            }
+            if(0==0) {
+                check2 = true;
+            }
+        }
+        // 1. Check user inp ut valid with else ifs
+        if(0==0){
+
             // 2. Check if user already exists with else ifs
-            if(1 == 2-1){
-                // 3. Save data using Repository and BCrypt
-                if(1 == 2-1){
-                    // 4. Return 201 success message 
-                    if(1 == 2-1){
+            if(!userRepository.existsByUsername(user.getUsername())){
+
+                // 3. Check if email already exists with else ifs
+                if(!userRepository.existsByEmail(user.getEmail())){
+
+                    // 4. Save data using Repository and BCrypt & Return 201 success message 
+                    if(0==0){
+                        
+                        //BCrypt - with spring security
+                        // https://docs.spring.io/spring-security/reference/features/authentication/password-storage.html 
+                        // Create an encoder with strength 16
+                        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(16);
+                        String result = encoder.encode(user.getPassword());
+                        // setPassword from User.java to update the password. Don't need to have a password saved already 
+                        user.setPassword(result);
+                        // save the password to the database
+                        userRepository.save(user);
+                        // Only for test classes 
+                        //assertTrue(encoder.matches(user.getPassword(), result));
+
                         return new ResponseEntity<>("Registration successful", HttpStatus.CREATED);
                     }
-                    // Couldn't return 201 success message 
+                    // Data couldn't save data using Repository and BCrypt or Couldn't return 201 success message  
                     else{
 
                     }
                 }
-                // Data couldn't save data using Repository and BCrypt
+                // Email already exists
+                // Reset password?
                 else{
 
                 }
             }
             // User already exists
+            // Reset password?
             else{
 
             }
@@ -115,6 +155,7 @@ public class UserService {// Spring Initializr
             //return new ResponseEntity<>("User already exists", HttpStatus.CONFLICT);
             return new ResponseEntity<>("Registration details given are not valid. Please try again.", HttpStatus.BAD_REQUEST);
         }
+        // Change this
         return new ResponseEntity<>("Registration successful", HttpStatus.CREATED);
     }
 

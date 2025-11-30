@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?><!--Dependencies: Spring Web, Spring Data JPA, Java Mail Sender and Validation-->
+<?xml version="1.0" encoding="UTF-8"?><!--Dependencies: Spring Web, Spring Data JPA, Java Mail Sender and Validation and Security-->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"><!-- Spring Initializr -->
 	<modelVersion>4.0.0</modelVersion><!-- Spring Initializr -->
 	<parent><!-- Spring Initializr -->
 		<groupId>org.springframework.boot</groupId><!-- Spring Initializr -->
 		<artifactId>spring-boot-starter-parent</artifactId><!-- Spring Initializr -->
-		<version>4.0.0-M3</version><!-- Spring Initializr -->
+		<version>4.0.0</version><!-- Spring Initializr -->
 		<relativePath/> <!-- lookup parent from repository --><!-- Spring Initializr -->
 	</parent><!-- Spring Initializr -->
 	<groupId>com.mydomain</groupId><!-- Spring Initializr -->
@@ -59,7 +59,18 @@
 			<artifactId>spring-boot-starter-test</artifactId><!-- Spring Initializr -->
 			<scope>test</scope><!-- Spring Initializr -->
 		</dependency><!-- Spring Initializr -->
-	
+
+		<!-- Manually added Security Dependency 30.11.2025 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
 		<!-- Commented out as it doesnt like it -->
 		<!-- <dependency> -->
 			<!-- <groupId>mysql</groupId> -->

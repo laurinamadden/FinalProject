@@ -1,17 +1,36 @@
+// Written by Laurina Madden 
+// Student Number x20200765
+// 30.11.2025 - Celebration :) Registration is working :)
+// Registration script.js Process
 document.getElementById("regform").addEventListener("submit", function(event){
     event.preventDefault();
+
+    const data = {
+        username: document.getElementById('username').value,
+        phone: document.getElementById('phone').value,
+        email: document.getElementById('email').value,
+        //confirmEmail: document.getElementById('confirmEmail').value,
+        password: document.getElementById('password').value
+        //confirmPassword: document.getElementById('confirmPassword').value
+    };    
+
+    const confirm = {
+        confirmEmail: document.getElementById('confirmEmail').value,
+        confirmPassword: document.getElementById('confirmPassword').value
+    };
 
     // Prevalidation checks
     // Vars for checking password has upper and lower case char in it  
     let hasUpperChar = false;
-    let hasLowerChar = flase;
+    let hasLowerChar = false;
 
     // Vars for checking that password has a special char included in it 
     let hasSpecialChar = false;
 
+
     // Prevalidation - Does the password have upper and lower case char in it?
-    for(let i = 0; i < password.length; i++){
-        let char = password[i];
+    for(let i = 0; i < data.password.length; i++){
+        let char = data.password[i];
         // 
         if (char === char.toLowerCase() && char !== char.toUpperCase()) {
             hasLowerChar = true;
@@ -22,26 +41,31 @@ document.getElementById("regform").addEventListener("submit", function(event){
     }
 
     // Prevalidation - Does the password have a special char?
-    for(let i = 0; i < password.length; i++){
-        let specChar = password[i];
-        if(specChar == "!" || specChar == "?" || specChar == "@" || specChar == "$"){
+    for(let i = 0; i < data.password.length; i++){
+        let specChar = data.password[i];
+         if(specChar == "!" || specChar == "?" || specChar == "@" || specChar == "$"){
             hasSpecialChar = true;
         }
     }
 
     // Validation of registration input from user 
-    if(email == confirmEmail){
-        if(password == confirmPassword){
-            if(password.length >= 16){
+    if(data.email == confirm.confirmEmail){
+        if(data.password == confirm.confirmPassword){
+            // For best practice
+            //if(password.length >= 16){
+            // For testing 
+            if(data.password.length > 4){
                 if(hasSpecialChar == true){
                     if(hasUpperChar ==  true && hasLowerChar == true){
                         // If code gets this far - Password is vaild
+                        /*
                         const data = {
                             username: document.getElementById('username').value,
                             phone: document.getElementById('phone').value,
                             email: document.getElementById('email').value,
                             password: document.getElementById('password').value
                         };
+                        */
                         fetch("/users",{
                             method: "POST",
                             headers: { "Content-Type": "application/json" },
@@ -75,3 +99,5 @@ document.getElementById("regform").addEventListener("submit", function(event){
     }
 
 });
+
+// Log in script.js Process
