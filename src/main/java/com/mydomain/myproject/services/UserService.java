@@ -119,7 +119,7 @@ public class UserService {// Spring Initializr
                         
                         //BCrypt - with spring security
                         // https://docs.spring.io/spring-security/reference/features/authentication/password-storage.html 
-                        // Create an encoder with strength 16
+                        // Created encoder with strength 16 edited code from Spring security reference
                         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(16);
                         String result = encoder.encode(user.getPassword());
                         // setPassword from User.java to update the password. Don't need to have a password saved already 
