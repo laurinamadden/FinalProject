@@ -1,4 +1,6 @@
 /*
+Written by: Laurina Madden
+Student Number: x20200765
 * {
     top: 50%;
     width: 100%;
@@ -13,9 +15,19 @@
     background-size: cover;
     height: 100%;
 }
+
+.class{}
+#id{}
 */
 
 /*The backgound would only expand to the whole screen when html, was added before body. Which blew my mind.*/
+
+/*
+html, . {
+
+}
+*/
+
 html, body {
     height: 100%;
     margin: 0;
@@ -24,4 +36,27 @@ html, body {
     background-repeat: no-repeat;
     background-size: cover;
     
+}
+
+
+.button {
+    display: flex;
+    /* Buttons should be side by side */
+    flex-direction: row;
+    /* Buttons should be on top of each other */
+    /*flex-direction: column;*/
+    /* Horazontal Center */
+    justify-content: center;
+    /* Vertical Center */
+    align-items: center;
+    /* Makes container that takes up the whole page. Meant to help with centering. */
+    /*height: 100vh;*/
+}
+
+button {
+    /* Space between buttons */
+    margin: 10px 0;
+    /* Stop buttons stretching */
+    width: auto;
+    flex: none;
 }

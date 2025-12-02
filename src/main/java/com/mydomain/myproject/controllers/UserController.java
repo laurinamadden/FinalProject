@@ -89,6 +89,10 @@ public class UserController {// Spring Initializr
         return userService.regUser(user);
     }
     
+    @PostMapping("/users")
+    public ResponseEntity<?> logIn(@RequestBody User user) {
+        return userService.loginUser(user);
+    }
 
     /*
     Failed

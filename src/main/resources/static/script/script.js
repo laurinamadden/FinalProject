@@ -55,8 +55,10 @@ document.getElementById("regform").addEventListener("submit", function(event){
             //if(password.length >= 16){
             // For testing 
             if(data.password.length > 4){
-                if(hasSpecialChar == true){
-                    if(hasUpperChar ==  true && hasLowerChar == true){
+                //if(hasSpecialChar == true){
+                if(hasSpecialChar){
+                    //if(hasUpperChar ==  true && hasLowerChar == true){
+                    if(hasUpperChar && hasLowerChar){
                         // If code gets this far - Password is vaild
                         /*
                         const data = {
@@ -75,29 +77,68 @@ document.getElementById("regform").addEventListener("submit", function(event){
                     }
                     else{
                         // hasUpperChar !=  true || hasLowerChar != true
-                        alert("Please try again \nThe password entered doesn't have upper and lower case characters");
+                        alert("JavaScript.Please try again \nThe password entered doesn't have upper and lower case characters");
                     }
                 }
                 else{
                     // hasSpecialChar == false
-                    alert("Please try again \nThe password entered is missing a special character");
+                    alert("JavaScript.Please try again \nThe password entered is missing a special character");
                 }
             }
             else{
                 // password.length < 16
-                alert("Please try again \nThe password entered is not long enough");
+                alert("JavaScript.Please try again \nThe password entered is not long enough");
             }
         }
         else{
             // password != confirmPassword
-            alert("Please try again \nThe password entered did not match the confirm password entered");
+            alert("PJavaScript.lease try again \nThe password entered did not match the confirm password entered");
         }
     }
     else{
         // email != confirmEmail
-        alert("Please try again \nThe email entered did not match the confirm email entered");
+        alert("JavaScript.Please try again \nThe email entered did not match the confirm email entered");
     }
 
 });
 
 // Log in script.js Process
+document.getElementById("loginform").addEventListener("submit", function(event){
+    event.preventDefault();
+    
+    // Is best practice 
+    const data = {
+        username: document.getElementById("loginUsername").value,
+        password: document.getElementById("loginPassword").value
+    };
+    
+    // Vars for checking that password has a special char included in it 
+    let hasSpecialChar = false;
+
+    for(let i = 0; i < data.loginPassword.length; i++){
+        let specChar = data.loginPassword[i];
+         if(specChar == "!" || specChar == "?" || specChar == "@" || specChar == "$"){
+            hasSpecialChar = true;
+        }
+    }
+
+    // Validate log in details
+    if(hasSpecialChar){
+        if(0==0){        
+            fetch("/login",{
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            });
+        }
+        else{
+
+        }
+    // Logged in. Need to allow access to groupOptions/index.html once logged in
+    window.location.href = "../groupOptions/index.html";
+    }
+    else{
+        alert("JavaScript.Please try again \nThe password entered is missing a special character");
+    }
+
+});

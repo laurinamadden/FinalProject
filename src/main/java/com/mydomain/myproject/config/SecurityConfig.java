@@ -28,6 +28,7 @@ public class SecurityConfig{
         // allows access without logged in
         //.antMatchers("/register/index.html", "/login/index.html", "/script/script.js", "/style/style.css").permitAll()
         .requestMatchers(
+            "/",
             "/index.html", 
             "/register/index.html", 
             "/login/index.html", 

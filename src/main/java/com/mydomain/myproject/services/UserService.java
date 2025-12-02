@@ -105,8 +105,8 @@ public class UserService {// Spring Initializr
                 check2 = true;
             }
         }
-        // 1. Check user inp ut valid with else ifs
-        if(0==0){
+        // 1. Check user input valid with else ifs
+        if(check1 && check2){
 
             // 2. Check if user already exists with else ifs
             if(!userRepository.existsByUsername(user.getUsername())){
@@ -133,19 +133,19 @@ public class UserService {// Spring Initializr
                     }
                     // Data couldn't save data using Repository and BCrypt or Couldn't return 201 success message  
                     else{
-
+                        return new ResponseEntity<>("Please try again.", HttpStatus.BAD_REQUEST);
                     }
                 }
                 // Email already exists
                 // Reset password?
                 else{
-
+                    return new ResponseEntity<>("Registration details given are not valid. Please try again.", HttpStatus.BAD_REQUEST);
                 }
             }
             // User already exists
             // Reset password?
             else{
-
+                return new ResponseEntity<>("Registration details given are not valid. Please try again.", HttpStatus.BAD_REQUEST);
             }
         }
         // User input invalid 
@@ -156,12 +156,26 @@ public class UserService {// Spring Initializr
             return new ResponseEntity<>("Registration details given are not valid. Please try again.", HttpStatus.BAD_REQUEST);
         }
         // Change this
-        return new ResponseEntity<>("Registration successful", HttpStatus.CREATED);
+        //return new ResponseEntity<>("Registration successful", HttpStatus.CREATED);
     }
 
 
     // Log In Process
+    public ResponseEntity<?> loginUser(User user) {
+        
+        if(0==0){
+            if(0==0){
 
+            }
+            else{
+
+            }
+        }
+        else{
+
+        }
+    
+    }
 
 
 }// Spring Initializr
