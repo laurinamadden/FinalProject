@@ -33,7 +33,9 @@ public class SecurityConfig{
             "/register/index.html", 
             "/login/index.html", 
             "/script/script.js", 
-            "/style/style.css"
+            "/style/style.css",
+            // Temp
+            "/groupCreation/index.html"
         ).permitAll()
         // tells that log in is needed for other paths
         .anyRequest().authenticated()

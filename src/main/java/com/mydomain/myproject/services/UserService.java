@@ -159,7 +159,7 @@ public class UserService {// Spring Initializr
         //return new ResponseEntity<>("Registration successful", HttpStatus.CREATED);
     }
 
-
+/* 
     // Log In Process
     public ResponseEntity<?> loginUser(User user) {
         
@@ -177,5 +177,5 @@ public class UserService {// Spring Initializr
     
     }
 
-
+*/
 }// Spring Initializr
