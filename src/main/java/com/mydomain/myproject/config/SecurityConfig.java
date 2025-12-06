@@ -34,6 +34,8 @@ public class SecurityConfig{
             "/login/index.html", 
             "/script/script.js", 
             "/style/style.css",
+            "/users",
+            "/login",
             // Temp
             "/groupCreation/index.html"
         ).permitAll()
