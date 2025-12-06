@@ -1,6 +1,20 @@
-// Class created and written by Laurina Madden
+// Written by Laurina Madden
+package com.mydomain.myproject.services;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
+import com.mydomain.myproject.entities.LogIn;
+import com.mydomain.myproject.entities.User;
 
 
+public class LogInService {
+
+    public ResponseEntity<?> loginUser(LogIn user) {
+        return new ResponseEntity<>("Please try again.", HttpStatus.BAD_REQUEST);
+    }
+
+}
 
 
 
