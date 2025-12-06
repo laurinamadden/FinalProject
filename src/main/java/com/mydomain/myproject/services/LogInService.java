@@ -3,7 +3,7 @@ package com.mydomain.myproject.services;
 
 // Other classes it has access to 
 import com.mydomain.myproject.entities.LogIn;
-import com.mydomain.myproject.entities.User;
+//import com.mydomain.myproject.entities.User;
 import com.mydomain.myproject.repositories.UserRepository;
 
 // Imports
@@ -16,7 +16,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @Service
 public class LogInService {
 
-        //Declares field to hold the repository 
+    
+
+    //Declares field to hold the repository 
     private final UserRepository userRepository;
 
     //The constructor 
@@ -31,18 +33,19 @@ public class LogInService {
     
     public ResponseEntity<?> loginUser(LogIn user) {
         
+        System.out.println("Inside ResponseEntity<?>");
         //BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(16);
 
         // Does username exist
         if(userRepository.existsByUsername(user.getLoginUsername())){
         //if(userRepository.existsByUsername(loginUsername())){
-            
+            System.out.println("Inside log in else ifs");
             // Get user object by username
             userRepository.findByUsername(user.getLoginUsername());
 
             // Declares and initialises storedPassword so it can be used below in if statement
             String storedPassword = userRepository.findByUsername(user.getLoginUsername()).getPassword();
-            
+            System.out.println("One step away from log in");
             // Does the stored password match the log in password?
             // example code: encoder.matches(loginPassword, stored_hash)
             if(encoder.matches(user.getLoginUsername(), storedPassword)){
