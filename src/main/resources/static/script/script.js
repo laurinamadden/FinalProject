@@ -124,15 +124,18 @@ document.getElementById("loginform").addEventListener("submit", function(event){
 
     // Validate log in details
     if(hasSpecialChar){
-        if(0==0){        
+        if(0==0){    
+            // entities/Login.java has been created and can be used    
             fetch("/login",{
+            // entities/User.java could be used but dont think it is set up to take this data 
+            //fetch("/users",{
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data)
             });
         }
         else{
-
+            window.location.href = "../index.html";
         }
     // Logged in. Need to allow access to groupOptions/index.html once logged in
     window.location.href = "../groupOptions/index.html";

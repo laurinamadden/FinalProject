@@ -2,7 +2,7 @@ package com.mydomain.myproject.controllers;// Spring Initializr
 
 //Imports other classes in this project
 import com.mydomain.myproject.entities.User;
-// repository should not have direct access to controller or 
+// repository should not have direct access to controller 
 //import com.mydomain.myproject.repositories.UserRepository;
 import com.mydomain.myproject.services.UserService;
 

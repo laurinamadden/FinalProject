@@ -164,12 +164,7 @@ public class UserService {// Spring Initializr
     public ResponseEntity<?> loginUser(User user) {
         
         if(0==0){
-            if(0==0){
-
-            }
-            else{
-
-            }
+            
         }
         else{
 
