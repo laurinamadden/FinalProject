@@ -3,7 +3,8 @@ Writen by Laurina Madden
 While tryiing to make the log in feature work
 Purpose of this class is to hold data and can have logic in it too 
 and to provide the headings for a database 
-This is the Entity Class for log in 
+This is the Entity Class for log in - 
+06.12.2025 - but its bad practice so dont temp save log in details as my plan was to temp hold on to the plane details so they could be compared 
 */
 
 // Package

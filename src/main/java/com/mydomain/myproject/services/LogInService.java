@@ -1,17 +1,65 @@
 // Written by Laurina Madden
 package com.mydomain.myproject.services;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-
+// Other classes it has access to 
 import com.mydomain.myproject.entities.LogIn;
 import com.mydomain.myproject.entities.User;
+import com.mydomain.myproject.repositories.UserRepository;
+
+// Imports
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 
+@Service
 public class LogInService {
 
+        //Declares field to hold the repository 
+    private final UserRepository userRepository;
+
+    //The constructor 
+    public LogInService (UserRepository userRepository){
+        this.userRepository = userRepository;
+    }
+
+    
+    // Declares and initialises new BCrypt encoder for a password - 16 is the strength of encoding
+    BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(16);
+
+    
     public ResponseEntity<?> loginUser(LogIn user) {
+        
+        //BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(16);
+
+        // Does username exist
+        if(userRepository.existsByUsername(user.getLoginUsername())){
+        //if(userRepository.existsByUsername(loginUsername())){
+            
+            // Get user object by username
+            userRepository.findByUsername(user.getLoginUsername());
+
+            // Declares and initialises storedPassword so it can be used below in if statement
+            String storedPassword = userRepository.findByUsername(user.getLoginUsername()).getPassword();
+            
+            // Does the stored password match the log in password?
+            // example code: encoder.matches(loginPassword, stored_hash)
+            if(encoder.matches(user.getLoginUsername(), storedPassword)){
+                // If here the log in should be confirmed 
+                System.out.println("Log in successful");
+            }
+            else{
+                return new ResponseEntity<>("Please try again.", HttpStatus.BAD_REQUEST);
+            }
+        }
+        else{
+            // Username not found
+            return new ResponseEntity<>("Please try again.", HttpStatus.BAD_REQUEST);
+        }
+        
         return new ResponseEntity<>("Please try again.", HttpStatus.BAD_REQUEST);
+
     }
 
 }
