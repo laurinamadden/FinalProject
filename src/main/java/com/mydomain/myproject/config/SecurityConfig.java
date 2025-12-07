@@ -36,8 +36,12 @@ public class SecurityConfig{
             "/style/style.css",
             "/users",
             "/login",
-            // Temp
-            "/groupCreation/index.html"
+            // Temp 
+            "/groupCreation/index.html",
+            // 06.12.2025 - Temp for testing as 403 error from security dependency
+            //"*", Doesnt work - server wouldn't start - so commented out
+            "/**"
+
         ).permitAll()
         // tells that log in is needed for other paths
         .anyRequest().authenticated()

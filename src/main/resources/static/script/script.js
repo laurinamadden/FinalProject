@@ -68,9 +68,17 @@ document.getElementById("regform").addEventListener("submit", function(event){
                             password: document.getElementById('password').value
                         };
                         */
+                        const token = document.cookie
+                            .split('; ')
+                            .find(row => row.startsWith('XSRF/CSRF-TOKEN='))
+                            ?.split('=')[1];
+
                         fetch("/users",{
                             method: "POST",
-                            headers: { "Content-Type": "application/json" },
+                            headers: { 
+                                "Content-Type": "application/json",
+                                "X-XSRF-TOKEN" : token 
+                            },
                             body: JSON.stringify(data)
                         });
                         window.location.href = "../login/index.html";
@@ -126,11 +134,19 @@ document.getElementById("loginform").addEventListener("submit", function(event){
     if(hasSpecialChar){
         if(0==0){    
             // entities/Login.java has been created and can be used    
+            const token = document.cookie
+                .split('; ')
+                .find(row => row.startsWith('XSRF/CSRF-TOKEN='))
+                ?.split('=')[1];
+
             fetch("/login",{
             // entities/User.java could be used but dont think it is set up to take this data 
             //fetch("/users",{
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
+                headers: { 
+                    "Content-Type": "application/json",
+                    "X-XSRF-TOKEN" : token 
+                },
                 body: JSON.stringify(data)
             });
         }
