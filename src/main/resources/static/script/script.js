@@ -81,7 +81,8 @@ document.getElementById("regform").addEventListener("submit", function(event){
                             },
                             body: JSON.stringify(data)
                         });
-                        window.location.href = "../login/index.html";
+                        //window.location.href = "../login/index.html";
+                        
                     }
                     else{
                         // hasUpperChar !=  true || hasLowerChar != true
