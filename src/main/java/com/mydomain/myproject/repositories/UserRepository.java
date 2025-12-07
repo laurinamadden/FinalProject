@@ -15,7 +15,8 @@ public interface UserRepository extends CrudRepository<User, Integer> {
     */
     Boolean existsByUsername(String username);
     User findByUsername(String username);
-    User findAll(String username);
+    // Created to token to work with @GetMapping but commented out as it caused server to have build failure 
+    //User findAll(String username);
     
     Boolean existsByEmail(String email);
     User findByEmail(String email);

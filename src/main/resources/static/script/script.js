@@ -76,7 +76,7 @@ document.getElementById("regform").addEventListener("submit", function(event){
                             // Step 2
                             const token = document.cookie
                                 .split('; ')
-                                .find(row => row.startsWith('XSRF/CSRF-TOKEN='))
+                                .find(row => row.startsWith('XSRF-TOKEN='))
                                 ?.split('=')[1];
                             // Step 3
                             fetch("/users",{
@@ -86,10 +86,12 @@ document.getElementById("regform").addEventListener("submit", function(event){
                                     // XSRF-TOKEN — for CSRF protection
                                     "X-XSRF-TOKEN" : token 
                                 },
-                                body: JSON.stringify(data)
+                                body: JSON.stringify(data),
+                                // tells bowser to send cookies with request - very important
+                                credentials: "include"
                             });
                         // tells bowser to send cookies with request - very important
-                        credentials: 'include'
+                        //credentials: "include" // Had to move because I had it in the wrong place
                         });
 
                         //window.location.href = "../login/index.html";
@@ -148,7 +150,7 @@ document.getElementById("loginform").addEventListener("submit", function(event){
             // entities/Login.java has been created and can be used    
             const token = document.cookie
                 .split('; ')
-                .find(row => row.startsWith('XSRF/CSRF-TOKEN='))
+                .find(row => row.startsWith('XSRF-TOKEN='))
                 ?.split('=')[1];
 
             fetch("/login",{
