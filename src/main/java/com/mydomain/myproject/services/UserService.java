@@ -158,7 +158,12 @@ public class UserService {// Spring Initializr
         // Change this
         //return new ResponseEntity<>("Registration successful", HttpStatus.CREATED);
     }
-
+/*
+    // Added for @GetMaping needed for security to create XSRF-TOKEN cookie which is a bit ridiculous 
+    // Not needed after all
+    public ResponseEntity<?> securityToken(User user) {
+        return new ResponseEntity<>(" ");
+    }
 /* 
     // Log In Process
     public ResponseEntity<?> loginUser(User user) {

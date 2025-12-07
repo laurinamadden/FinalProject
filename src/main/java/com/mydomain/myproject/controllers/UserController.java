@@ -9,7 +9,7 @@ import com.mydomain.myproject.services.UserService;
 //Imports - Annotations
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.ResponseEntity;
-//import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 //import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 //import org.springframework.web.bind.annotation.PutMapping;
@@ -88,6 +88,13 @@ public class UserController {// Spring Initializr
     public ResponseEntity<?> reg(@RequestBody User user) {
         return userService.regUser(user);
     }
+
+    //@GetMaping is needed for security to create XSRF-TOKEN cookie which is a bit ridiculous
+    @GetMapping
+    public ResponseEntity<?> token() {
+        return ResponseEntity.ok("CSRF token sent in cookie"); // Codecademy AI provided this line of code
+    }
+
 /*
     @PostMapping("/users")
     public ResponseEntity<?> logIn(@RequestBody User user) {

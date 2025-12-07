@@ -68,21 +68,32 @@ document.getElementById("regform").addEventListener("submit", function(event){
                             password: document.getElementById('password').value
                         };
                         */
-                        const token = document.cookie
-                            .split('; ')
-                            .find(row => row.startsWith('XSRF/CSRF-TOKEN='))
-                            ?.split('=')[1];
-
-                        fetch("/users",{
-                            method: "POST",
-                            headers: { 
-                                "Content-Type": "application/json",
-                                "X-XSRF-TOKEN" : token 
-                            },
-                            body: JSON.stringify(data)
+                        // For security token step 1
+                        fetch('/users', {   
+                            method: 'GET', 
+                            credentials: 'include' 
+                        }).then(() => {
+                            // Step 2
+                            const token = document.cookie
+                                .split('; ')
+                                .find(row => row.startsWith('XSRF/CSRF-TOKEN='))
+                                ?.split('=')[1];
+                            // Step 3
+                            fetch("/users",{
+                                method: "POST",
+                                headers: { 
+                                    "Content-Type": "application/json",
+                                    // XSRF-TOKEN — for CSRF protection
+                                    "X-XSRF-TOKEN" : token 
+                                },
+                                body: JSON.stringify(data)
+                            });
+                        // tells bowser to send cookies with request - very important
+                        credentials: 'include'
                         });
+
                         //window.location.href = "../login/index.html";
-                        
+
                     }
                     else{
                         // hasUpperChar !=  true || hasLowerChar != true
