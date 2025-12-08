@@ -3,15 +3,16 @@
 package com.mydomain.myproject.controllers;
 
 //Imports other classes in this project
-import com.mydomain.myproject.entities.User;
+//import com.mydomain.myproject.entities.User;
 import com.mydomain.myproject.entities.LogIn;
-import com.mydomain.myproject.services.UserService;
+//import com.mydomain.myproject.services.UserService;
 import com.mydomain.myproject.services.LogInService;
 
 
 //Imports - Annotations
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -35,4 +36,9 @@ public class LoginController {
         return logInService.loginUser(user); 
     }
     
+    //@GetMaping is needed for security to create XSRF-TOKEN cookie which is a bit ridiculous
+    @GetMapping
+    public ResponseEntity<?> token() {
+        return ResponseEntity.ok("CSRF token sent in cookie"); // Codecademy AI provided this line of code
+    }
 }

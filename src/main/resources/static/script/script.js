@@ -69,15 +69,15 @@ document.getElementById("regform").addEventListener("submit", function(event){
                         };
                         */
                         // For security token step 1
-                        fetch('/users', {   
-                            method: 'GET', 
-                            credentials: 'include' 
+                        fetch("/users", {   
+                            method: "GET", 
+                            credentials: "include" 
                         }).then(() => {
                             // Step 2
                             const token = document.cookie
-                                .split('; ')
-                                .find(row => row.startsWith('XSRF-TOKEN='))
-                                ?.split('=')[1];
+                                .split("; ")
+                                .find(row => row.startsWith("XSRF-TOKEN="))
+                                ?.split("=")[1];
                             // Step 3
                             fetch("/users",{
                                 method: "POST",
@@ -147,21 +147,30 @@ document.getElementById("loginform").addEventListener("submit", function(event){
     // Validate log in details
     if(hasSpecialChar){
         if(0==0){    
-            // entities/Login.java has been created and can be used    
-            const token = document.cookie
-                .split('; ')
-                .find(row => row.startsWith('XSRF-TOKEN='))
-                ?.split('=')[1];
-
-            fetch("/login",{
-            // entities/User.java could be used but dont think it is set up to take this data 
-            //fetch("/users",{
-                method: "POST",
-                headers: { 
-                    "Content-Type": "application/json",
-                    "X-XSRF-TOKEN" : token 
-                },
-                body: JSON.stringify(data)
+            // entities/Login.java has been created and can be used - but its not best practice
+            // For security token step 1
+            fetch("/login", {   
+                method: 'GET', 
+                credentials: 'include' 
+            }).then(() => {
+                // Step 2
+                const token = document.cookie
+                    .split('; ')
+                    .find(row => row.startsWith('XSRF-TOKEN='))
+                    ?.split('=')[1];
+                // Step 3
+                fetch("/login",{
+                // entities/User.java could be used but dont think it is set up to take this data 
+                    //fetch("/users",{
+                    method: "POST",
+                    headers: { 
+                        "Content-Type": "application/json",
+                        "X-XSRF-TOKEN" : token 
+                    },
+                    body: JSON.stringify(data),
+                    // tells bowser to send cookies with request - very important
+                    credentials: "include"
+                });
             });
         }
         else{

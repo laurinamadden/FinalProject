@@ -42,7 +42,8 @@ public class User {// Spring Initializr
     }
     
     // is for your own use when you want to create a user in your code
-    public User(String username, String phone, String email, String password) { //TODO Auto-generated constructor stub but I removed the 2s it had username2 etc
+    public User(String username, String phone, String email, String password) { 
+        //ToDo Auto-generated constructor stub but I removed the 2s it had username2 etc
         // I added this code with Codecademy AI advice 
         this.username = username;
         this.phone = phone;
