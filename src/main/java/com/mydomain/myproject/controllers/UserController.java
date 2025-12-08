@@ -6,6 +6,8 @@ import com.mydomain.myproject.entities.User;
 //import com.mydomain.myproject.repositories.UserRepository;
 import com.mydomain.myproject.services.UserService;
 
+import jakarta.servlet.http.HttpSession;
+
 //Imports - Annotations
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.ResponseEntity;
@@ -90,8 +92,9 @@ public class UserController {// Spring Initializr
     }
 
     //@GetMaping is needed for security to create XSRF-TOKEN cookie which is a bit ridiculous
+    //08.12.2025 - HttpSession session added as getting intermittent 403 error when submit registration form - Advised by codecademy AI 
     @GetMapping
-    public ResponseEntity<?> token() {
+    public ResponseEntity<?> token(HttpSession session) {
         return ResponseEntity.ok("CSRF token sent in cookie"); // Codecademy AI provided this line of code
     }
 

@@ -8,6 +8,7 @@ import com.mydomain.myproject.entities.LogIn;
 //import com.mydomain.myproject.services.UserService;
 import com.mydomain.myproject.services.LogInService;
 
+import jakarta.servlet.http.HttpSession;
 
 //Imports - Annotations
 import org.springframework.web.bind.annotation.RestController;
@@ -38,7 +39,7 @@ public class LoginController {
     
     //@GetMaping is needed for security to create XSRF-TOKEN cookie which is a bit ridiculous
     @GetMapping
-    public ResponseEntity<?> token() {
+    public ResponseEntity<?> token(HttpSession session) {
         return ResponseEntity.ok("CSRF token sent in cookie"); // Codecademy AI provided this line of code
     }
 }

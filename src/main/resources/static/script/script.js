@@ -68,28 +68,43 @@ document.getElementById("regform").addEventListener("submit", function(event){
                             password: document.getElementById('password').value
                         };
                         */
+                        const token = document.cookie
+                            .split("; ")
+                            .find(row => row.startsWith("XSRF-TOKEN="))
+                            ?.split("=")[1];
+                            //Test token
+                            console.log(token);
+                            console.log(document.cookie);
                         // For security token step 1
                         fetch("/users", {   
                             method: "GET", 
                             credentials: "include" 
                         }).then(() => {
-                            // Step 2
-                            const token = document.cookie
-                                .split("; ")
-                                .find(row => row.startsWith("XSRF-TOKEN="))
-                                ?.split("=")[1];
-                            // Step 3
-                            fetch("/users",{
-                                method: "POST",
-                                headers: { 
-                                    "Content-Type": "application/json",
-                                    // XSRF-TOKEN — for CSRF protection
-                                    "X-XSRF-TOKEN" : token 
-                                },
-                                body: JSON.stringify(data),
-                                // tells bowser to send cookies with request - very important
-                                credentials: "include"
-                            });
+                            //08.12.2025 - added to try help with 403 error
+                            setTimeout(() => {
+                                // Step 2
+                                /*
+                                const token = document.cookie
+                                    .split("; ")
+                                    .find(row => row.startsWith("XSRF-TOKEN="))
+                                    ?.split("=")[1];
+                                */
+                                // Step 3
+                                fetch("/users",{
+                                    method: "POST",
+                                    headers: { 
+                                        "Content-Type": "application/json",
+                                        // XSRF-TOKEN — for CSRF protection
+                                        "X-XSRF-TOKEN" : token 
+                                    },
+                                    body: JSON.stringify(data),
+                                    // tells bowser to send cookies with request - very important
+                                    credentials: "include"
+                                });
+                                //.then(response => {
+                                    // response goes in here - like else if statements that check if registration was successful                                  
+                                //});
+                            }, 300); // ms delay
                         // tells bowser to send cookies with request - very important
                         //credentials: "include" // Had to move because I had it in the wrong place
                         });
@@ -153,24 +168,26 @@ document.getElementById("loginform").addEventListener("submit", function(event){
                 method: 'GET', 
                 credentials: 'include' 
             }).then(() => {
-                // Step 2
-                const token = document.cookie
-                    .split('; ')
-                    .find(row => row.startsWith('XSRF-TOKEN='))
-                    ?.split('=')[1];
-                // Step 3
-                fetch("/login",{
-                // entities/User.java could be used but dont think it is set up to take this data 
-                    //fetch("/users",{
-                    method: "POST",
-                    headers: { 
-                        "Content-Type": "application/json",
-                        "X-XSRF-TOKEN" : token 
-                    },
-                    body: JSON.stringify(data),
-                    // tells bowser to send cookies with request - very important
-                    credentials: "include"
-                });
+                setTimeout(() => {
+                    // Step 2
+                    const token = document.cookie
+                        .split('; ')
+                        .find(row => row.startsWith('XSRF-TOKEN='))
+                        ?.split('=')[1];
+                    // Step 3
+                    fetch("/login",{
+                    // entities/User.java could be used but dont think it is set up to take this data 
+                        //fetch("/users",{
+                        method: "POST",
+                        headers: { 
+                            "Content-Type": "application/json",
+                            "X-XSRF-TOKEN" : token 
+                        },
+                        body: JSON.stringify(data),
+                        // tells bowser to send cookies with request - very important
+                        credentials: "include"
+                    });
+                }, 300); // ms delay
             });
         }
         else{

@@ -10,7 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.web.cors.CorsConfiguration;
 //07.12.2025 - Trying because still getting error 403 
-import org.springframework.web.filter.CorsFilter;
+//import org.springframework.web.filter.CorsFilter;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.cors.CorsConfigurationSource;
 
@@ -85,6 +85,7 @@ public class SecurityConfig{
     }
 
     // 07.12.2025 - Trying because still getting error 403 on registeration submit button pressed  
+/* commented out on 08.12.2025 after advice from codecademy AI as 403 error came back on submit of registration - commenting out fixed it    
     @Bean
     public CorsFilter corsFilter() {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
@@ -96,6 +97,7 @@ public class SecurityConfig{
         source.registerCorsConfiguration("/**", config);
         return new CorsFilter(source);
     }
+*/
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
