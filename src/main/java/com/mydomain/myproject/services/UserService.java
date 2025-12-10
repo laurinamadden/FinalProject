@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;// Auto created by VS Code
 import org.springframework.web.server.ResponseStatusException;// Auto created by VS Code
 // Update to BCrypt when get a chance - thats what codecademy AI says is best practice for passwords
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 //import org.springframework.http.HttpStatus; //Thought this was needed but VS doesnt like it
 
@@ -88,8 +88,25 @@ public class UserService {// Spring Initializr
     // Pre Register Process?
 
 
-
+/*
     // Register Process 
+    // Proof of concept
+    public ResponseEntity<?> regUser(User user) {
+        //BCrypt - with spring security
+        // https://docs.spring.io/spring-security/reference/features/authentication/password-storage.html 
+        // Created encoder with strength 16 edited code from Spring security reference
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(16);
+        String result = encoder.encode(user.getPassword());
+        // setPassword from User.java to update the password. Don't need to have a password saved already 
+        user.setPassword(result);
+        // save the password to the database
+        userRepository.save(user);
+        
+        return new ResponseEntity<>("Registration successful", HttpStatus.CREATED);
+
+    }
+*/
+
     public ResponseEntity<?> regUser(User user) {
         boolean check1 = false;
         boolean check2 = false;
@@ -116,7 +133,7 @@ public class UserService {// Spring Initializr
 
                     // 4. Save data using Repository and BCrypt & Return 201 success message 
                     if(0==0){
-                        
+                    /*
                         //BCrypt - with spring security
                         // https://docs.spring.io/spring-security/reference/features/authentication/password-storage.html 
                         // Created encoder with strength 16 edited code from Spring security reference
@@ -130,6 +147,7 @@ public class UserService {// Spring Initializr
                         //assertTrue(encoder.matches(user.getPassword(), result));
 
                         return new ResponseEntity<>("Registration successful", HttpStatus.CREATED);
+                    */
                     }
                     // Data couldn't save data using Repository and BCrypt or Couldn't return 201 success message  
                     else{
@@ -156,8 +174,9 @@ public class UserService {// Spring Initializr
             return new ResponseEntity<>("Registration details given are not valid. Please try again.", HttpStatus.BAD_REQUEST);
         }
         // Change this
-        //return new ResponseEntity<>("Registration successful", HttpStatus.CREATED);
+        return new ResponseEntity<>("Registration successful", HttpStatus.CREATED);
     }
+
 /*
     // Added for @GetMaping needed for security to create XSRF-TOKEN cookie which is a bit ridiculous 
     // Not needed after all

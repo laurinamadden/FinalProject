@@ -10,7 +10,7 @@ import com.mydomain.myproject.repositories.UserRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 
 @Service
@@ -28,7 +28,7 @@ public class LogInService {
 
     
     // Declares and initialises new BCrypt encoder for a password - 16 is the strength of encoding
-    BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(16);
+    //BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(16);
 
     
     public ResponseEntity<?> loginUser(LogIn user) {
@@ -44,17 +44,17 @@ public class LogInService {
             userRepository.findByUsername(user.getLoginUsername());
 
             // Declares and initialises storedPassword so it can be used below in if statement
-            String storedPassword = userRepository.findByUsername(user.getLoginUsername()).getPassword();
+            //String storedPassword = userRepository.findByUsername(user.getLoginUsername()).getPassword();
             System.out.println("One step away from log in");
             // Does the stored password match the log in password?
             // example code: encoder.matches(loginPassword, stored_hash)
-            if(encoder.matches(user.getLoginUsername(), storedPassword)){
+            //if(encoder.matches(user.getLoginUsername(), storedPassword)){
                 // If here the log in should be confirmed 
                 System.out.println("Log in successful");
-            }
-            else{
-                return new ResponseEntity<>("Please try again.", HttpStatus.BAD_REQUEST);
-            }
+            //}
+            //else{
+            //    return new ResponseEntity<>("Please try again.", HttpStatus.BAD_REQUEST);
+            //}
         }
         else{
             // Username not found

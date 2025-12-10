@@ -60,7 +60,7 @@
 			<scope>test</scope><!-- Spring Initializr -->
 		</dependency><!-- Spring Initializr -->
 
-		<!-- Manually added Security Dependency 30.11.2025 -->
+		<!-- Manually added Security Dependency 30.11.2025 - 10.12.2025 Commented out 403 error cant figure it out 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
@@ -69,7 +69,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security-test</artifactId>
 			<scope>test</scope>
-		</dependency>
+		</dependency>-->
 
 		<!-- Commented out as it doesnt like it -->
 		<!-- <dependency> -->

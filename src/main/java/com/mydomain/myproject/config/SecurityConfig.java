@@ -1,3 +1,4 @@
+/*
 package com.mydomain.myproject.config;
 
 import org.springframework.context.annotation.Bean;
@@ -10,7 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.web.cors.CorsConfiguration;
 //07.12.2025 - Trying because still getting error 403 
-//import org.springframework.web.filter.CorsFilter;
+import org.springframework.web.filter.CorsFilter;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.cors.CorsConfigurationSource;
 
@@ -35,15 +36,18 @@ public class SecurityConfig{
             .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
             );
         */
+       /* 09.12.2025 - Temp commented out to test 403 error
         http
             .cors(cors -> {}) // enable CORS
             .csrf(csrf -> csrf
                 .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
             );
-
-
+        */
+/*
         // Token Problem Fix? Set to httpOnly: True but we want it to be false so JavaScript can read the cookies  
         http
+            .cors(cors -> {})
+            //.and()
             .csrf(csrf -> csrf
             .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
             );
@@ -83,7 +87,7 @@ public class SecurityConfig{
         // and returns security set up
         return http.build();
     }
-
+*/
     // 07.12.2025 - Trying because still getting error 403 on registeration submit button pressed  
 /* commented out on 08.12.2025 after advice from codecademy AI as 403 error came back on submit of registration - commenting out fixed it    
     @Bean
@@ -98,6 +102,7 @@ public class SecurityConfig{
         return new CorsFilter(source);
     }
 */
+/*
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
@@ -110,3 +115,4 @@ public class SecurityConfig{
         return source;
     }
 }
+*/
