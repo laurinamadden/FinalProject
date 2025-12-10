@@ -1,4 +1,4 @@
-/*
+
 package com.mydomain.myproject.config;
 
 import org.springframework.context.annotation.Bean;
@@ -43,16 +43,20 @@ public class SecurityConfig{
                 .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
             );
         */
-/*
+
         // Token Problem Fix? Set to httpOnly: True but we want it to be false so JavaScript can read the cookies  
         http
             .cors(cors -> {})
             //.and()
-            .csrf(csrf -> csrf
-            .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
-            );
+            //10.12.2025 commented out due to 403 error trying something I found on GitHub
+            //.csrf(csrf -> csrf
+            //.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+            //);
+            //10.12.2025 saw on GitHub trying out
+            .csrf(csrf -> csrf.disable())
         
-        http
+            //10.12.2025 commented out due to what I saw on GitHub
+        //http
             // starts setting access rules.
             //.authorizeHttpRequests()
             //.authorizeRequests()
@@ -87,7 +91,7 @@ public class SecurityConfig{
         // and returns security set up
         return http.build();
     }
-*/
+
     // 07.12.2025 - Trying because still getting error 403 on registeration submit button pressed  
 /* commented out on 08.12.2025 after advice from codecademy AI as 403 error came back on submit of registration - commenting out fixed it    
     @Bean
@@ -102,7 +106,6 @@ public class SecurityConfig{
         return new CorsFilter(source);
     }
 */
-/*
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
@@ -115,4 +118,3 @@ public class SecurityConfig{
         return source;
     }
 }
-*/
