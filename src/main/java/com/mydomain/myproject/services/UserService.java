@@ -92,14 +92,20 @@ public class UserService {// Spring Initializr
     // Register Process 
     // Proof of concept
     public ResponseEntity<?> regUser(User user) {
+        // Test
+        System.out.println("UserService - ResponseEntity regUser()");
         //BCrypt - with spring security
         // https://docs.spring.io/spring-security/reference/features/authentication/password-storage.html 
         // Created encoder with strength 16 edited code from Spring security reference
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(16);
         String result = encoder.encode(user.getPassword());
+        // Test
+        System.out.println("Result " + result);
         // setPassword from User.java to update the password. Don't need to have a password saved already 
         user.setPassword(result);
-        // save the password to the database
+        // Test
+        System.out.println("User " + user);
+        // save the password to the database with the rest of the registration inputs
         userRepository.save(user);
         
         return new ResponseEntity<>("Registration successful", HttpStatus.CREATED);

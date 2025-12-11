@@ -59,6 +59,8 @@ public class UserController {// Spring Initializr
     private final UserService userService;
     // Constructor 
     public UserController(UserService userService) {
+        // Test 
+        System.out.println("UserController - UserService Contructor");
         this.userService = userService;
     }
 
@@ -88,6 +90,8 @@ public class UserController {// Spring Initializr
     // <?> responce can be any type. It returns ResponseEntity
     // ResponseEntity is from the spring library 
     public ResponseEntity<?> reg(@RequestBody User user) {
+        // Test 
+        System.out.println("UserController -  PostMapping ResponseEntity reg()");
         return userService.regUser(user);
     }
 
@@ -95,6 +99,8 @@ public class UserController {// Spring Initializr
     //08.12.2025 - HttpSession session added as getting intermittent 403 error when submit registration form - Advised by codecademy AI 
     @GetMapping
     public ResponseEntity<?> token(HttpSession session) {
+        // Test 
+        System.out.println("UserController - GetMapping ResponseEntity token");
         return ResponseEntity.ok("CSRF token sent in cookie"); // Codecademy AI provided this line of code
     }
 
