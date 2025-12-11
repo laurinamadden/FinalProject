@@ -100,11 +100,15 @@ public class UserService {// Spring Initializr
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(16);
         String result = encoder.encode(user.getPassword());
         // Test
-        System.out.println("Result " + result);
+        System.out.println("Result encoder " + result);
         // setPassword from User.java to update the password. Don't need to have a password saved already 
         user.setPassword(result);
         // Test
         System.out.println("User " + user);
+        System.out.println("Username " + user.getUsername());
+        System.out.println("Phone " + user.getPhone());
+        System.out.println("Email " + user.getEmail());
+        System.out.println("Password " + user.getPassword());
         // save the password to the database with the rest of the registration inputs
         userRepository.save(user);
         

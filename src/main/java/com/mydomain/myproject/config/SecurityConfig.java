@@ -14,6 +14,12 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.filter.CorsFilter;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.cors.CorsConfigurationSource;
+// 11.12.2025 - line 57
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
+import org.springframework.security.web.csrf.CsrfTokenRepository;
+//import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
+import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 
 
 
@@ -48,13 +54,16 @@ public class SecurityConfig{
         http
             .cors(cors -> {})
             //.and()
-            //10.12.2025 commented out due to 403 error trying something I found on GitHub
-            //.csrf(csrf -> csrf
-            //.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+            //10.12.2025 commented out due to 403 error trying something I found on GitHub and tried .csrf(csrf -> csrf.disable()) which didnt work out
+            .csrf(csrf -> csrf
+            .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+            )
             //);
             //10.12.2025 saw on GitHub trying out
-            .csrf(csrf -> csrf.disable())
+            //.csrf(csrf -> csrf.disable())
         
+
+
             //10.12.2025 commented out due to what I saw on GitHub
         //http
             // starts setting access rules.

@@ -59,6 +59,11 @@ public class User {// Spring Initializr
     */
 
     // Getters
+/*
+    public String getId() {
+        return id;
+    }
+*/   
     public String getUsername() {
         return username;
     }

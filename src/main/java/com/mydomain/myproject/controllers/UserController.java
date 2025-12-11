@@ -85,7 +85,8 @@ public class UserController {// Spring Initializr
 */
     // Replacement code?
     //Handles HTTP POST method sent to the end point /users
-    @PostMapping("/users")
+    //11.12.2025 @PostMapping("/users")
+    @PostMapping
     // When Post method for endpoint /users is triggered the first function below will run  
     // <?> responce can be any type. It returns ResponseEntity
     // ResponseEntity is from the spring library 
