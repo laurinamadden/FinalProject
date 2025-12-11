@@ -59,8 +59,8 @@ public class SecurityConfig{
             .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
             )
             //);
-            //10.12.2025 saw on GitHub trying out
-            //.csrf(csrf -> csrf.disable())
+            //10.12.2025 saw on GitHub trying out - 11.12.2025 comment out again?
+            .csrf(csrf -> csrf.disable())
         
 
 
