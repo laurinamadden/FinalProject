@@ -12,15 +12,15 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.web.cors.CorsConfiguration;
 //07.12.2025 - Trying because still getting error 403 
-import org.springframework.web.filter.CorsFilter;
+//import org.springframework.web.filter.CorsFilter;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.cors.CorsConfigurationSource;
 // 11.12.2025 - line 57
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
-import org.springframework.security.web.csrf.CsrfTokenRepository;
+//import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 //import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
-import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
+//import org.springframework.security.web.csrf.CsrfTokenRepository;
+//import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
+//import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 
 
 
