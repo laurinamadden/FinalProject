@@ -1,3 +1,4 @@
+// Spring Security configuration class that sets up the security rules for HTTP-based web application
 
 package com.mydomain.myproject.config;
 
@@ -52,15 +53,20 @@ public class SecurityConfig{
 
         // Token Problem Fix? Set to httpOnly: True but we want it to be false so JavaScript can read the cookies  
         http
+            // cors == CrossOrigin Resource Sharing for browser - can allow requests from different places like different ports
+            // {} == defalt settings in @Bean corsConfigurationSource
             .cors(cors -> {})
             //.and()
             //10.12.2025 commented out due to 403 error trying something I found on GitHub and tried .csrf(csrf -> csrf.disable()) which didnt work out
+            // csrf == CrossSite Request Forgery should stop unwanted requests by bad actor in browser of website
             .csrf(csrf -> csrf
+            // Need HttpOnly to be false for JavaScript to be able to read token and for xsrp token to show in browser console 
             .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
             )
             //);
-            //10.12.2025 saw on GitHub trying out - 11.12.2025 comment out again?
-            .csrf(csrf -> csrf.disable())
+            //10.12.2025 saw on GitHub trying out - then commented out because found its not meant for protuction -  11.12.2025 comment out again?
+            //12.12.2025 turns out this disables csrf protection not good so commented out again
+            //.csrf(csrf -> csrf.disable())
         
 
 
@@ -70,9 +76,11 @@ public class SecurityConfig{
             //.authorizeHttpRequests()
             //.authorizeRequests()
             //"(auth -> auth ...) is a lambda expression" Codecademy AI - it sets up rules
+            // config of auth rules
             .authorizeHttpRequests(auth -> auth
             // allows access without logged in
             //.antMatchers("/register/index.html", "/login/index.html", "/script/script.js", "/style/style.css").permitAll()
+            // lists URL endpoints with premission for all users
             .requestMatchers(
                 "/",
                 "/index.html", 
@@ -86,10 +94,13 @@ public class SecurityConfig{
                 "/groupCreation/index.html",
                 // 06.12.2025 - Temp for testing as 403 error from security dependency
                 //"*", Doesnt work - server wouldn't start - so commented out
+                // temp allows all access to all webpages etc for testing - trying to avoid error 403 for testing
                 "/**"
-
+            // tells browser to allow all access to the listed items above
             ).permitAll()
-            // tells that log in is needed for other paths
+            // I want it to set that log in is needed for other paths 
+            // not triggered at moment due to "/**" above
+            // should be asking for auth for all other requests that dont match what is listed above
             .anyRequest().authenticated()
             // links two diff types of security settings by ending one and starting another 
             //.and()
@@ -97,7 +108,7 @@ public class SecurityConfig{
             //.formLogin();
             );
         // return finishs task 
-        // and returns security set up
+        // and returns security set up or in other words it builds the SecurityFilterChain bean whitch filters requests made on webpage
         return http.build();
     }
 
